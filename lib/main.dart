@@ -1,47 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:nexride/screens/splash_screen.dart';
+import 'package:nexride/screens/splash_screen/splash_screen.dart';
+import 'core/theme/app_theme.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const NexRideApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NexRideApp extends StatefulWidget {
+  const NexRideApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<NexRideApp> createState() => _NexRideAppState();
+}
+
+class _NexRideAppState extends State<NexRideApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: SplashScreen(),
-
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-
+      title: 'NexRide',
+      theme: AppTheme.darkTheme,
+      home: const SplashScreen(),
     );
   }
 }
